@@ -1,5 +1,6 @@
 var timeDisplayEl = $('#time-display');
 var saveBtnEl = $('#save-btn')
+var textAreaEl = $('#text-area')
 
 
 
@@ -8,22 +9,23 @@ function displayTime() {
   timeDisplayEl.text(rightNow);
 }
 
-function saveTextDesc() {
-  var text = localStorage.getItem('text');
-  if (text) {
-    text = JSON.parse(text);
-    return text
+function getTextDesc() {
+  textAreaEl = localStorage.getItem('text');
+  if (textAreaEl) {
+    textAreaEl = JSON.parse(text);
+
+    return textAreaEl
 
 }
 }
-function getTextDesc(text) {
-  localStorage.setItem('text', JSON.stringify(text));
+function saveTextDesc(textAreaEl) {
+  localStorage.setItem('text', JSON.stringify(textAreaEl));
 }
 
 displayTime();
 setInterval(displayTime, 1000);
 
-saveBtnEl.on('click', saveTextDesc)
+saveBtnEl.on('click', getTextDesc)
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
