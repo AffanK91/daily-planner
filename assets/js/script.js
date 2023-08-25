@@ -14,6 +14,8 @@ $('.saveBtn').on('click', function(){
   var time = $(this).parent().attr('id');
 
 localStorage.setItem(time, value);
+
+
 })
 
 displayTime();
@@ -29,8 +31,16 @@ $('#hour-3 .description').val(localStorage.getItem('hour-3'));
 $('#hour-4 .description').val(localStorage.getItem('hour-4'));
 $('#hour-5 .description').val(localStorage.getItem('hour-5'));
 
+var currentTime = dayjs().hour()
 
-
+$('.time-block').each(function(){
+  var hour = $(this).val()
+  if (hour == currentTime){
+    $(this).val().addClass("present")
+  } else if (hour < currentTime) {
+    $(this).val().addClass("past")
+  } else $(this).val().addClass("future")
+})
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -43,6 +53,6 @@ $('#hour-5 .description').val(localStorage.getItem('hour-5'));
   // attribute of each time-block be used to do this?
   //
 
-
+ 
 
 
