@@ -9,7 +9,7 @@ Add important events and details to text area and hit the save button to save th
 Based on the local time the calender the sort by color where Past will be in Gray, Present will be in Red and Future time will be in Green.
 
 ## Link to Website
-
+https://affank91.github.io/daily-planner/
 
 ## Screenshot of the website
 ![Alt text](image-1.png)
